@@ -1,8 +1,14 @@
 <?php require_once("inc/top.php"); ?>
 <?php require_once("inc/functions.php"); ?>
 
+<?php 
+if (isset ( $_POST ["lisaa"] )) {
+	$kaveri = new Kaveri ( $_POST ["nimi"], $_POST ["puhelinnumero"], $_POST ["osoite"], $_POST ["lisatietoja"]);
+}
+?>
+
  <h3>Lisää uusi kaveri</h3>
-      <form role="form" method="post" action="insert.php">
+      <form role="form" method="post">
         <div class="form-group">
           <label>Nimi:</label>
 	
@@ -23,7 +29,7 @@
          <textarea class="form-control" rows="10" cols="40" placeholder="Lisätiedot" name="lisatietoja"></textarea>
         </div>
  
-        <button type="submit" class="btn btn-success" name="lisaa">Lisää yhteystieto</button>
+        <button type="submit" class="btn btn-success" name="lisaa">Lisää kaverin tiedot</button>
 		<button class="btn btn-danger" type="reset">Tyhjennä</button>
       </form>
 
