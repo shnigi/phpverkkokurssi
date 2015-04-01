@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>HTML5 starter pack</title>
+	<title>Nikin PHP kaverisovellus</title>
 	<meta charset="utf-8" />
 	<script src="js/jquery-2.1.3.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -11,6 +11,15 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 </head>
 <body>
-	<h1>jQuery, jQuery ui, CSS, Bootstrap, font-awesome and all necessary elements included to start coding</h1>
-</body>
-</html>
+
+  <div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">Nikin Kaverisovellus</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="index.php">Etusivu</a></li>
+            <li><a href="lisaa.php">Lisää kaveri</a></li>
+            <li><a href="listaa.php">Listaa kaverit</a></li>
+          </ul>
+        </nav>
+      </div>
