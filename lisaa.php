@@ -1,10 +1,10 @@
 <?php require_once("inc/top.php"); ?>
-<?php require_once("inc/functions.php"); ?>
+<?php //require_once("inc/functions.php"); ?>
 
 <?php 
-if (isset ( $_POST ["lisaa"] )) {
-	$kaveri = new Kaveri ( $_POST ["nimi"], $_POST ["puhelinnumero"], $_POST ["osoite"], $_POST ["lisatietoja"]);
-}
+//if (isset ( $_POST ["lisaa"] )) {
+//	$kaveri = new Kaveri ( $_POST ["nimi"], $_POST ["puhelinnumero"], $_POST ["osoite"], $_POST ["lisatietoja"]);
+//}
 ?>
 
  <h3>Lisää uusi kaveri</h3>
