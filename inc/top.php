@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Nikin PHP kaverisovellus</title>
+	<title>Nikin PHP autosovellus</title>
 	<meta charset="utf-8" />
 	<script src="js/jquery-2.1.3.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -14,12 +14,12 @@
 
   <div class="container">
       <div class="masthead">
-        <h3 class="text-muted">Nikin Kaverisovellus</h3>
+        <h3 class="text-muted">Nikin Autosovellus</h3>
         <nav>
           <ul class="nav nav-justified">
             <li><a href="index.php">Etusivu</a></li>
-            <li><a href="lisaa.php">Lisää kaveri</a></li>
-            <li><a href="listaa.php">Listaa kaverit</a></li>
+            <li><a href="lisaa.php">Lisää auto</a></li>
+            <li><a href="listaa.php">Listaa autot</a></li>
           </ul>
         </nav>
       </div>
