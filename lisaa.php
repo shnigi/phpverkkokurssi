@@ -57,9 +57,4 @@ else {
 		<button class="btn btn-danger" type="reset">Tyhjennä</button>
       </form>
 	  
-	  <?php
-    if (preg_match("/^[A-Z]{1,2}$/", "AAAA")) {
-        print "Got match!";
-    }?>
-
-<?php require_once("inc/footer.php"); ?>
+	<?php require_once("inc/footer.php"); ?>
