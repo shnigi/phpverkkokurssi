@@ -61,6 +61,10 @@ class Auto  {
 			return 11;
 		}	
 		
+		if (strlen ( $this->merkki ) < 2) {
+			return 23;
+		}	
+		
 		if (strlen ( $this->merkki ) > 50) {
 			return 17;
 		}	
@@ -93,13 +97,21 @@ class Auto  {
 		
 		if(!preg_match("/^[0-9]{1,2}\.[0-9]{1}$/", $this->tilavuus)){
 			return 16;
-		}	
+		}	else {
+		if ($this->tilavuus > 15)
+		return 21;
+		}
+		if ($this->tilavuus < 0.8){
+		return 22;
+		}
 		
 		return 0;
 	}
 	
 		//Valmistusvuosi
 	public function checkValmistusvuosi() {
+	
+	$curYear = date('Y'); 
 				
 		if (strlen ( $this->valmistusvuosi ) == 0) {
 			return 11;
@@ -113,12 +125,11 @@ class Auto  {
 			if ($this->valmistusvuosi < 1980){
 			return 19;
 			}
-			if ($this->valmistusvuosi > 2015){
+			if ($this->valmistusvuosi > $curYear){
 				return 20;
 			}
 	}
 
-		
 		return 0;
 	}
 	
@@ -138,11 +149,14 @@ class Auto  {
 			13 => "Tilavuus on pakollinen",
 			14 => "Merkki saa sisältää vain isoja ja pieniä kirjaimia",
 			15 => "Rekisterinumeron tulee olla muotoa: ABC-123",
-			16 => "Ilmoita tilavuus pisteellä ja muodossa: 1.8 tai 12.5",
+			16 => "Ilmoita tilavuus pisteellä ja muodossa: 1.8 tai 12.0",
 			17 => "Auton merkki on liian pitkä",
 			18 => "Ilmoita vuosi muodossa: 2015",
 			19 => "Auton tulee olla uudempi kuin 1980",
 			20 => "Auto ei voi olla uudempi kuin 2015",
+			21 => "Moottorin tilavuus ei voi olla yli 15 litraa",
+			22 => "Moottorin tilavuuden täytyy olla vähintään 0.8",
+			23 => "Merkkiin täytyy laittaa vähintään kaksi kirjainta",
 	);
 	
 } //Class ends

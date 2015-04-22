@@ -11,6 +11,12 @@ if (isset ( $_POST ["lisaa"] )) {
 	$tilavuusVirhe = $auto->checkTilavuus ();
 $valmistusvuosiVirhe = $auto->checkValmistusvuosi ();
 	}
+	
+	elseif (isset ( $_POST ["cancel"] )) {
+	header ( "location: index.php" );
+	exit ();
+} 
+
 else {
 	$auto = new Auto();
 	
@@ -54,7 +60,7 @@ else {
         </div>
  
         <button type="submit" class="btn btn-success" name="lisaa">Lisää auton tiedot</button>
-		<button class="btn btn-danger" type="reset">Tyhjennä</button>
+		<button class="btn btn-danger" type="submit" name="cancel" >Peruuta</button>
       </form>
 	  
 	<?php require_once("inc/footer.php"); ?>
