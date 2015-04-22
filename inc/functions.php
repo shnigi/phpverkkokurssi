@@ -107,7 +107,18 @@ class Auto  {
 				
 		if(!preg_match("/^[0-9]{4}$/", $this->valmistusvuosi)){
 			return 18;
-		}			
+		}	
+		
+		else {
+			if ($this->valmistusvuosi < 1980){
+			return 19;
+			}
+			if ($this->valmistusvuosi > 2015){
+				return 20;
+			}
+	}
+
+		
 		return 0;
 	}
 	
@@ -130,6 +141,8 @@ class Auto  {
 			16 => "Ilmoita tilavuus pisteellä ja muodossa: 1.8 tai 12.5",
 			17 => "Auton merkki on liian pitkä",
 			18 => "Ilmoita vuosi muodossa: 2015",
+			19 => "Auton tulee olla uudempi kuin 1980",
+			20 => "Auto ei voi olla uudempi kuin 2015",
 	);
 	
 } //Class ends
