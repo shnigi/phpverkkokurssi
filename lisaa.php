@@ -48,6 +48,12 @@ else {
 	$valmistusvuosiVirhe = 0;
 	}
 	
+	if (isset ( $_GET ["korjaus"] )) {
+	
+	
+	
+	}
+	
 }
 ?>
 

@@ -9,15 +9,19 @@ if (isset($_SESSION["kaara"])) {
 } else {
 $auto = new Auto();
 }
-unset($_SESSION["kaara"]);
+//unset($_SESSION["kaara"]);
 
 
 	if (isset ( $_POST ["korjaa"] )) {
 		header("location: lisaa.php");
+		header("location: lisaa.php?korjaus=kylla");
+exit;
 	}
 	
 	if (isset ( $_POST ["tallenna"] )) {
-		echo "<p style='color:green; font-size:44px;'>Tiedot tallennettu!</p>";
+		unset ( $_SESSION ["kaara"] );
+		header("location: tallennettu.php");
+		exit ();
 	}
 	
 	if (isset ( $_POST ["peruuta"] )) {
