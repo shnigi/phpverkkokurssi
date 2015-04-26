@@ -13,7 +13,7 @@
 			
 				print("<p style=''>Nimesi on: <b>" . $nimi . "</b>, nimi on tallennettu keksiin.</p>");
 			}else {
-			print("<p style=''>Keksiä ei ole asetettu, ole hyvä ja aseta se asetukset sivulta.</p>");
+			print("<p style=''>Nimesi tulostuu tähän, kun se on asetettu. Keksiä ei ole vielä asetettu, ole hyvä ja aseta se asetukset sivulta.</p>");
 			}
 			?>
       </div>
