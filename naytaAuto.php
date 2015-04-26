@@ -9,8 +9,6 @@ if (isset($_SESSION["kaara"])) {
 } else {
 $auto = new Auto();
 }
-//unset($_SESSION["kaara"]);
-
 
 	if (isset ( $_POST ["korjaa"] )) {
 		header("location: lisaa.php");
