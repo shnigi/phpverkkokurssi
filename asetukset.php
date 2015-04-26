@@ -3,15 +3,13 @@ require_once("inc/top.php");
 
 	if (isset ( $_POST ["nimi"] )) {
 		$nimi = $_POST ["nimikentta"];
-		setcookie("keksi" , $nimi);
+		setcookie("keksi" , $nimi, time()+60*60*24*7);
 		header ( "location: index.php" );
 	}
 ?>
 
-      <!-- Jumbotron -->
       <div class="jumbotron">
         <h1>Asetukset</h1>
-   
    
    <h3>Aseta nimi: </h3>
       <form role="form" method="post">

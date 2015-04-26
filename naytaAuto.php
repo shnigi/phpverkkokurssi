@@ -17,7 +17,7 @@ unset($_SESSION["kaara"]);
 	}
 	
 	if (isset ( $_POST ["tallenna"] )) {
-		echo "<p style='color:green; font-size:44px;'>Talletetaan tiedot!</p>";
+		echo "<p style='color:green; font-size:44px;'>Tiedot tallennettu!</p>";
 	}
 	
 	if (isset ( $_POST ["peruuta"] )) {
