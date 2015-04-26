@@ -1,29 +1,53 @@
-<?php require_once("inc/top.php"); ?>
-<?php require_once("inc/functions.php"); ?>
+<?php 
+require_once("inc/top.php"); 
+require_once("inc/functions.php");
+session_start (); 
 
-<?php
+
 if (isset ( $_POST ["lisaa"] )) {
 	
 	$auto = new Auto ( $_POST ["merkki"], $_POST ["rekisterinumero"], $_POST ["tilavuus"], $_POST ["valmistusvuosi"], $_POST ["lisatietoja"]);
 	
+	$_SESSION ["kaara"] = $auto;
+	
 	$merkkiVirhe = $auto->checkMerkki ();
 	$rekisterinumeroVirhe = $auto->checkRekisterinumero ();
 	$tilavuusVirhe = $auto->checkTilavuus ();
-$valmistusvuosiVirhe = $auto->checkValmistusvuosi ();
+	$valmistusvuosiVirhe = $auto->checkValmistusvuosi ();
+
+	if ($merkkiVirhe == 0 && $rekisterinumeroVirhe == 0 && $tilavuusVirhe == 0 && $valmistusvuosiVirhe == 0) {
+		
+		session_write_close ();
+		header("location: naytaAuto.php");
+		exit ();
 	}
+}
 	
-	elseif (isset ( $_POST ["cancel"] )) {
+elseif (isset ( $_POST ["cancel"] )) {
+	unset ( $_SESSION ["kaara"] );
 	header ( "location: index.php" );
 	exit ();
 } 
 
 else {
-	$auto = new Auto();
 	
+	if (isset ( $_SESSION ["kaara"] )) {
+		$auto = $_SESSION ["kaara"];
+		
+	$merkkiVirhe = $auto->checkMerkki ();
+	$rekisterinumeroVirhe = $auto->checkRekisterinumero ();
+	$tilavuusVirhe = $auto->checkTilavuus ();
+	$valmistusvuosiVirhe = $auto->checkValmistusvuosi ();
+		
+	} else {
+	$auto = new Auto();
+		
 	$merkkiVirhe = 0;
 	$rekisterinumeroVirhe = 0;
 	$tilavuusVirhe = 0;
 	$valmistusvuosiVirhe = 0;
+	}
+	
 }
 ?>
 

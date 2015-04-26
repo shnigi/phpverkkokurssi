@@ -42,6 +42,10 @@ a:hover {
    color:green;
 }
 
+.inline {
+display: inline;
+}
+
 @media (min-width: 768px) {
   .nav-justified {
     max-height: 52px;
@@ -68,3 +72,4 @@ a:hover {
     padding-left: 0;
   }
 }
+
