@@ -20,6 +20,7 @@
             <li><a href="index.php">Etusivu</a></li>
             <li><a href="lisaa.php">Lisää auto</a></li>
             <li><a href="listaa.php">Listaa autot</a></li>
+			 <li><a href="asetukset.php">Asetukset</a></li>
           </ul>
         </nav>
       </div>
