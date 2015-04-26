@@ -5,6 +5,17 @@
         <h1>Autorekisteri!</h1>
         <p class="lead">Tällä sovelluksella voit näppärästi ylläpitää tietoja autoista.</p>
         <p><a class="btn btn-lg btn-success" href="lisaa.php" role="button">Kokeile</a></p>
+		
+		<?php
+			//Tutkitaan onko koneella keksiä = cookies
+			if(isset($_COOKIE["keksi"])){
+			$nimi = $_COOKIE["keksi"];
+			
+				print("<p style=''>Nimesi on: <b>" . $nimi . "</b>, nimi on tallennettu keksiin.</p>");
+			}else {
+			print("<p style=''>Keksiä ei ole asetettu, ole hyvä ja aseta se asetukset sivulta.</p>");
+			}
+			?>
       </div>
 
       <!-- Example row of columns -->

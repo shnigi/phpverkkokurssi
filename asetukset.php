@@ -1,17 +1,23 @@
-<?php require_once("inc/top.php"); ?>
+<?php 
+require_once("inc/top.php"); 
+
+	if (isset ( $_POST ["nimi"] )) {
+		$nimi = $_POST ["nimikentta"];
+		setcookie("keksi" , $nimi);
+	}
+?>
 
       <!-- Jumbotron -->
       <div class="jumbotron">
         <h1>Asetukset</h1>
    
-   <h3>Nimesi:</h3>
+   <h3>Nimi: </h3>
       <form role="form" method="post">
-        <div class="form-group">
-          <input class="form-control" name="merkki" value="">
+          <input class="form-control" name="nimikentta" value="">
 		  <br>
-		    <button type="submit" class="btn btn-success" name="lisaa">Muuta nimeä</button>
+		    <button type="submit" class="btn btn-success" name="nimi">Muuta nimeä</button>
       </form>
-        </div>
+   
    
    
       </div>

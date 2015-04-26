@@ -13,7 +13,7 @@ unset($_SESSION["kaara"]);
 
 
 	if (isset ( $_POST ["korjaa"] )) {
-		header("location: index.php");
+		header("location: lisaa.php");
 	}
 	
 	if (isset ( $_POST ["tallenna"] )) {
@@ -27,7 +27,7 @@ unset($_SESSION["kaara"]);
 	}
 ?>
 
-      <!-- Jumbotron -->
+
       <div class="row">
 	  <div class="col-md-12">
         <h1>Tarkista antamasi auton tiedot:</h1>
