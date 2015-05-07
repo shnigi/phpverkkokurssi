@@ -1,0 +1,13 @@
+CREATE TABLE car(
+id SMALLINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+merkki VARCHAR(255) NOT NULL,
+rekisterinumero VARCHAR(255) NOT NULL,
+moottorintilavuus VARCHAR(255) NOT NULL,
+valmistusvuosi VARCHAR(255) NOT NULL,
+lisatietoja VARCHAR(255)
+) ENGINE=Innodb DEFAULT CHARSET=latin1;
+
+
+INSERT INTO car(merkki, rekisterinumero, moottorintilavuus, valmistusvuosi, lisatietoja) VALUES('Mazda', 'LRY-818', '2.3', '2007', 'Huippuhieno auto');
+INSERT INTO car(merkki, rekisterinumero, moottorintilavuus, valmistusvuosi, lisatietoja) VALUES('Opel', 'AZG-784', '2.2', '2001', 'Tämä auto oli minulla pisimpään');
+INSERT INTO car(merkki, rekisterinumero, moottorintilavuus, valmistusvuosi, lisatietoja) VALUES('Volkswagen', 'ASD-123', '1.3', '1995', 'Ensimmäinen autoni');
