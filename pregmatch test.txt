@@ -1,4 +1,0 @@
-  <?php
-    if (preg_match("/^[A-Z]{1,2}$/", "AAAA")) {
-        print "Got match!";
-    }?>

@@ -1,45 +1,45 @@
 <?php require_once("inc/top.php"); ?>
-
      <div class="container top-margin">
+	
+<h1 class="text-center">Autot tietokannasta.</h1>
+<br>
+<table class='table table-striped'>
+<thead>
+<tr>
+<th>Merkki:</th>
+<th>Rekisterinumero:</th>
+<th>Moottorin tilavuus:</th>
+<th>Valmistusvuosi:</th>
+<th>Lisatietoja:</th>
+</tr>
+</thead>
+<tbody>
+	
+	 
+	 <?php
+try {
+	require_once "autotPDO.php";
+	$kantakasittely = new autotPDO ();
+	$tulos = $kantakasittely->kaikkiAutot();
+
+	foreach ($tulos as $auto){
+	echo "<tr>";
+	//echo "<td>" .	 $auto->getId();  . "</td>";
+	echo "<td>" .	 $auto->getMerkki() . "</td>";
+	echo "<td>" .	 $auto->getRekisterinumero() . "</td>";
+	echo "<td>" .	 $auto->getTilavuus() .  "</td>";
+	echo "<td>" .	$auto->getValmistusvuosi() . "</td>";
+	echo "<td>" . $auto->getLisatietoja() . "</td>";
+	echo "</tr>";
+	}
+} catch ( Exception $error ) {
+	print($error->getMessage());
+	//header ( "location: virhe.php?sivu=Listaus&virhe=" . $error->getMessage () );
+	//exit ();
+}
+?>
                   
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Merkki</th>
-			 <th>Rekisterinumero</th>
-			  <th>Moottorin tilavuus</th>
-			   <th>Valmistusvuosi</th>
-			    <th>Lisätietoja</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Ford</td>
-			 <td>ABC-123</td>
-			 <td>1.8</td>
-			 <td>2007</td>
-			 <td>Tietoa</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Ford</td>
-			 <td>ABC-123</td>
-			 <td>1.8</td>
-			 <td>2007</td>
-			 <td>Tietoa</td>
-          </tr>
-          <tr>
-          <td>3</td>
-            <td>Ford</td>
-			 <td>ABC-123</td>
-			 <td>1.8</td>
-			 <td>2007</td>
-			 <td>Tietoa</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+				 </tbody></table>
+       </div>
 
 <?php require_once("inc/footer.php"); ?>
