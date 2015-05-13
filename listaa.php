@@ -1,17 +1,13 @@
 <?php require_once("inc/top.php"); 
 
-if (isset ( $_POST ["poista"] )  and is_numeric($_POST['poista'])) {
-	
-
-/*	try {
-	require_once "autotPDO.php";
-	$kantakasittely = new autotPDO ();
-	
-	$id = $_POST['deleteItem'];
-
-}*/
+if (isset ( $_POST ["poista"] )) {
 header('Location: listaa.php');
 }
+
+if (isset ( $_POST ["nayta"] )) {
+header('Location: naytaTiedot.php');
+}
+
 
 ?>
      <div class="container top-margin">
