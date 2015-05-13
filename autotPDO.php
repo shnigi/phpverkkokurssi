@@ -20,8 +20,7 @@ class autotPDO {
 	}
 
 	public function kaikkiAutot() {
-		$sql = "SELECT id, merkki, rekisterinumero, moottorintilavuus, valmistusvuosi, lisatietoja
-		        FROM car";
+		$sql = "SELECT * FROM car";
 		if (! $stmt = $this->db->prepare ( $sql )) {
 			$virhe = $this->db->errorInfo ();
 			throw new PDOException ( $virhe [2], $virhe [1] );
@@ -31,7 +30,7 @@ class autotPDO {
 			throw new PDOException ( $virhe [2], $virhe [1] );
 		}
 		$tulos = array ();
-		
+
 		while ( $row = $stmt->fetchObject () ) {
 			// Tehdään tietokannasta haetusta rivistä leffa-luokan olio
 			$auto = new Auto ();
@@ -87,23 +86,20 @@ class autotPDO {
 		$this->lkm = $stmt->rowCount ();
 		return $tulos;
 	}
-	function lisaaIlmoitus($ilmoitus) {
-		$sql = "insert into ilmoitus (otsikko, tyyppi, kuvaus, hinta, email, puhnro, paikkakunta, nimi)
-		        values (:otsikko, :tyyppi, :kuvaus, :hinta, :email, :puhnro, :paikkakunta, :nimi)";
+	function lisaaAuto($auto) {
+		$sql = "insert into car (merkki, rekisterinumero, moottorintilavuus, valmistusvuosi, lisatietoja)
+		        values (:merkki, :rekisterinumero, :moottorintilavuus, :valmistusvuosi, :lisatietoja)";
 		// Valmistellaan SQL-lause
 		if (! $stmt = $this->db->prepare ( $sql )) {
 			$virhe = $this->db->errorInfo ();
 			throw new PDOException ( $virhe [2], $virhe [1] );
 		}
 		// Parametrien sidonta
-		$stmt->bindValue ( ":otsikko", utf8_decode ( $ilmoitus->getOtsikko () ), PDO::PARAM_STR );
-		$stmt->bindValue ( ":tyyppi", utf8_decode ( $ilmoitus->getTyyppi () ), PDO::PARAM_STR );
-		$stmt->bindValue ( ":kuvaus", utf8_decode ( $ilmoitus->getKuvaus () ), PDO::PARAM_INT );
-		$stmt->bindValue ( ":hinta", $ilmoitus->getHinta (), PDO::PARAM_STR );
-		$stmt->bindValue ( ":email", utf8_decode ( $ilmoitus->getEmail () ), PDO::PARAM_STR );
-		$stmt->bindValue ( ":puhnro", utf8_decode ( $ilmoitus->getPuhnro () ), PDO::PARAM_STR );
-		$stmt->bindValue ( ":paikkakunta", utf8_decode ( $ilmoitus->getPaikkakunta () ), PDO::PARAM_STR );
-		$stmt->bindValue ( ":nimi", utf8_decode ( $ilmoitus->getNimi () ), PDO::PARAM_STR );
+		$stmt->bindValue ( ":merkki", utf8_decode ( $auto->getMerkki () ), PDO::PARAM_STR );
+		$stmt->bindValue ( ":rekisterinumero", utf8_decode ( $auto->getRekisterinumero () ), PDO::PARAM_STR );
+		$stmt->bindValue ( ":moottorintilavuus", utf8_decode ( $auto->getTilavuus () ), PDO::PARAM_INT );
+		$stmt->bindValue ( ":valmistusvuosi", $auto->getValmistusvuosi (), PDO::PARAM_STR );
+		$stmt->bindValue ( ":lisatietoja", utf8_decode ( $auto->getLisatietoja () ), PDO::PARAM_STR );
 		// Suoritetaan SQL-lause (insert)
 		if (! $stmt->execute ()) {
 			$virhe = $stmt->errorInfo ();
