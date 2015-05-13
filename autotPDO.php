@@ -39,7 +39,7 @@ class autotPDO {
 			$auto->setTilavuus ( utf8_encode ( $row->moottorintilavuus ) );
 			$auto->setValmistusvuosi ( $row->valmistusvuosi );
 			$auto->setLisatietoja ( utf8_encode ( $row->lisatietoja ) );
-		//	$auto->setId ( $row->id );
+		//$auto->setId ( $row->id );
 
 			// Laitetaan olio tulos taulukkoon (olio-taulukkoon)
 			$tulos [] = $auto;
@@ -47,9 +47,8 @@ class autotPDO {
 		$this->lkm = $stmt->rowCount ();
 		return $tulos;
 	}
-	public function haeIlmoitus($tyyppi) {
-		$sql = "SELECT id, tyyppi, otsikko, kuvaus, hinta, nimi, email, puhnro, paikkakunta
-		        FROM ilmoitus
+	public function haeAuto($auto) {
+		$sql = "SELECT * FROM car
 				WHERE tyyppi = :tyyppi";
 		// Valmistellaan lause, prepare on PDO-luokan metodeja
 		if (! $stmt = $this->db->prepare ( $sql )) {

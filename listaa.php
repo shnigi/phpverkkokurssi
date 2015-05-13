@@ -1,6 +1,6 @@
 <?php require_once("inc/top.php"); ?>
      <div class="container top-margin">
-	
+
 <h1 class="text-center">Autot tietokannasta.</h1>
 <br>
 <table class='table table-striped'>
@@ -11,11 +11,12 @@
 <th>Moottorin tilavuus:</th>
 <th>Valmistusvuosi:</th>
 <th>Lisatietoja:</th>
+<th>Toiminnot</th>
 </tr>
 </thead>
 <tbody>
-	
-	 
+
+
 	 <?php
 try {
 	require_once "autotPDO.php";
@@ -30,6 +31,11 @@ try {
 	echo "<td>" .	 $auto->getTilavuus() .  "</td>";
 	echo "<td>" .	$auto->getValmistusvuosi() . "</td>";
 	echo "<td>" . $auto->getLisatietoja() . "</td>";
+  echo "<td> <form action='' method='post'>
+  <input type='hidden' name='id' value=''>
+  <input type='submit' name='nayta' value='Näytä' class='btn btn-info'>
+  <input type='submit' name='poista' value='Poista' class='btn btn-danger'>
+</form> </td>";
 	echo "</tr>";
 	}
 } catch ( Exception $error ) {
@@ -38,7 +44,7 @@ try {
 	//exit ();
 }
 ?>
-                  
+
 				 </tbody></table>
        </div>
 
