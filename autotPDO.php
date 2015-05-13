@@ -39,7 +39,7 @@ class autotPDO {
 			$auto->setTilavuus ( utf8_encode ( $row->moottorintilavuus ) );
 			$auto->setValmistusvuosi ( $row->valmistusvuosi );
 			$auto->setLisatietoja ( utf8_encode ( $row->lisatietoja ) );
-		//$auto->setId ( $row->id );
+			$auto->setId ( $row->id );
 
 			// Laitetaan olio tulos taulukkoon (olio-taulukkoon)
 			$tulos [] = $auto;
@@ -47,6 +47,8 @@ class autotPDO {
 		$this->lkm = $stmt->rowCount ();
 		return $tulos;
 	}
+
+
 	public function haeAuto($auto) {
 		$sql = "SELECT * FROM car
 				WHERE tyyppi = :tyyppi";
@@ -85,6 +87,9 @@ class autotPDO {
 		$this->lkm = $stmt->rowCount ();
 		return $tulos;
 	}
+
+
+	//Lisää auto
 	function lisaaAuto($auto) {
 		$sql = "insert into car (merkki, rekisterinumero, moottorintilavuus, valmistusvuosi, lisatietoja)
 		        values (:merkki, :rekisterinumero, :moottorintilavuus, :valmistusvuosi, :lisatietoja)";
@@ -111,5 +116,19 @@ class autotPDO {
 		// Palautetaan lisätyn ilmoituksen id
 		return $this->db->lastInsertId ();
 	}
+
+
+	/*
+	function poistaAuto($auto) {
+
+	$sql = "DELETE FROM car WHERE id=?");
+
+}
+*/
+
+
+
+
+
 }
 ?>

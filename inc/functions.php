@@ -52,6 +52,13 @@ class Auto  {
 	public function getLisatietoja() {
 		return $this->lisatietoja;
 	}
+
+	public function setID($id) {
+		$this->id = trim ( $id );
+	}
+	public function getID() {
+		return $this->id;
+	}
 	
 //Error handling
 	//Merkki
