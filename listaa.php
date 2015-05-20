@@ -37,7 +37,7 @@ try {
 	echo "<td>" . $auto->getLisatietoja() . "</td>";
   echo "<td> <form action='' method='post'>
   <input type='hidden' name='id' value='" . $auto->getId() . "'>
-  <a href='naytaTiedot.php?id=" . $auto->getId() . "' class='btn btn-info'>Muokkaa</a>
+  <a href='naytaTiedot.php?id=" . $auto->getId() . "' class='btn btn-info'>Näytä</a>
   <input type='submit' name='poista' value='Poista' class='btn btn-danger'>
 </form> </td>";
 	echo "</tr>";
