@@ -36,7 +36,7 @@ try {
 	echo "<td>" .	$auto->getValmistusvuosi() . "</td>";
 	echo "<td>" . $auto->getLisatietoja() . "</td>";
   echo "<td> <form action='' method='post'>
-  <input type='hidden' name='id' value='" . $auto->getId() . "'>
+  <input type='hidden' name='deleteItem' value='" . $auto->getId() . "'>
   <a href='naytaTiedot.php?id=" . $auto->getId() . "' class='btn btn-info'>Näytä</a>
   <input type='submit' name='poista' value='Poista' class='btn btn-danger'>
 </form> </td>";
@@ -46,6 +46,18 @@ try {
 	print($error->getMessage());
 	//header ( "location: virhe.php?sivu=Listaus&virhe=" . $error->getMessage () );
 	//exit ();
+}
+?>
+
+<?php
+include 'inc/connection.php';
+if(isset($_POST['deleteItem']) and is_numeric($_POST['deleteItem']))
+{
+$id = $_POST['deleteItem'];
+
+$kysely = $yhteys->prepare("DELETE FROM car WHERE id=?");
+$kysely->execute(array($id));
+header('Location: listaa.php');
 }
 ?>
 

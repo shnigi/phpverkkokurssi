@@ -116,29 +116,5 @@ class autotPDO {
 	}
 
 
-	/*
-	function poistaAuto($auto) {
-
-	$sql = "DELETE FROM car WHERE id=?");
-
-}
-*/
-
-/*
-public function poistaAuto() {
-	$sql = "SELECT * FROM car";
-	if (! $stmt = $this->db->prepare ( $sql )) {
-		$virhe = $this->db->errorInfo ();
-		throw new PDOException ( $virhe [2], $virhe [1] );
-	}
-	if (! $stmt->execute ()) {
-		$virhe = $stmt->errorInfo ();
-		throw new PDOException ( $virhe [2], $virhe [1] );
-	}
-*/
-
-
-
-
 }
 ?>
