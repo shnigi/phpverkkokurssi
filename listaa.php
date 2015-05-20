@@ -1,16 +1,10 @@
-<?php require_once("inc/top.php"); 
+<?php require_once("inc/top.php");
 
 if (isset ( $_POST ["poista"] )) {
 header('Location: listaa.php');
 }
-
-if (isset ( $_POST ["nayta"] )) {
-header('Location: naytaTiedot.php');
-}
-
-
 ?>
-     <div class="container top-margin">
+<div class="container top-margin">
 
 <h1 class="text-center">Autot tietokannasta.</h1>
 <br>
@@ -36,7 +30,6 @@ try {
 
 	foreach ($tulos as $auto){
 	echo "<tr>";
-	//echo "<td>" .	 $auto->getId()  . "</td>";
 	echo "<td>" .	 $auto->getMerkki() . "</td>";
 	echo "<td>" .	 $auto->getRekisterinumero() . "</td>";
 	echo "<td>" .	 $auto->getTilavuus() .  "</td>";
@@ -44,7 +37,7 @@ try {
 	echo "<td>" . $auto->getLisatietoja() . "</td>";
   echo "<td> <form action='' method='post'>
   <input type='hidden' name='id' value='" . $auto->getId() . "'>
-  <input type='submit' name='nayta' value='Näytä' class='btn btn-info'>
+  <a href='naytaTiedot.php?id=" . $auto->getId() . "' class='btn btn-info'>Muokkaa</a>
   <input type='submit' name='poista' value='Poista' class='btn btn-danger'>
 </form> </td>";
 	echo "</tr>";

@@ -51,14 +51,14 @@ class autotPDO {
 
 	public function haeAuto($auto) {
 		$sql = "SELECT * FROM car
-				WHERE tyyppi = :tyyppi";
+				WHERE id = :id";
 		// Valmistellaan lause, prepare on PDO-luokan metodeja
 		if (! $stmt = $this->db->prepare ( $sql )) {
 			$virhe = $this->db->errorInfo ();
 			throw new PDOException ( $virhe [2], $virhe [1] );
 		}
 		// Sidotaan parametrit
-		$stmt->bindValue ( ":tyyppi", $tyyppi, PDO::PARAM_INT );
+		$stmt->bindValue ( ":id", $id, PDO::PARAM_INT );
 		// Ajetaan lauseke
 		if (! $stmt->execute ()) {
 			$virhe = $stmt->errorInfo ();
@@ -71,18 +71,16 @@ class autotPDO {
 		$tulos = array ();
 		while ( $row = $stmt->fetchObject () ) {
 			// Tehdään tietokannasta haetusta rivistä leffa-luokan olio
-			$ilmoitus = new Ilmoitus ();
-			$ilmoitus->setId ( $row->id );
-			$ilmoitus->setTyyppi ( utf8_encode ( $row->tyyppi ) );
-			$ilmoitus->setOtsikko ( utf8_encode ( $row->otsikko ) );
-			$ilmoitus->setKuvaus ( utf8_encode ( $row->kuvaus ) );
-			$ilmoitus->setHinta ( $row->hinta );
-			$ilmoitus->setNimi ( utf8_encode ( $row->nimi ) );
-			$ilmoitus->setEmail ( utf8_encode ( $row->email ) );
-			$ilmoitus->setPuhnro ( utf8_encode ( $row->puhnro ) );
-			$ilmoitus->setPaikkakunta ( utf8_encode ( $row->paikkakunta ) );
+			$auto = new Auto ();
+			$auto->setId ( $row->id );
+			$auto->setMerkki ( utf8_encode ( $row->merkki ) );
+			$auto->setRekisterinumero ( utf8_encode ( $row->rekisterinumero ) );
+			$auto->setTilavuus ( utf8_encode ( $row->tilavuus ) );
+			$auto->setValmistusvuosi ( $row->valmistusvuosi );
+			$auto->setLisatietoja ( utf8_encode ( $row->lisatietoja ) );
+
 			// Laitetaan olio tulos taulukkoon (olio-taulukkoon)
-			$tulos [] = $ilmoitus;
+			$tulos [] = $auto;
 		}
 		$this->lkm = $stmt->rowCount ();
 		return $tulos;
@@ -126,6 +124,18 @@ class autotPDO {
 }
 */
 
+/*
+public function poistaAuto() {
+	$sql = "SELECT * FROM car";
+	if (! $stmt = $this->db->prepare ( $sql )) {
+		$virhe = $this->db->errorInfo ();
+		throw new PDOException ( $virhe [2], $virhe [1] );
+	}
+	if (! $stmt->execute ()) {
+		$virhe = $stmt->errorInfo ();
+		throw new PDOException ( $virhe [2], $virhe [1] );
+	}
+*/
 
 
 
